@@ -4,23 +4,14 @@ module.exports = {
   "./src/**/*.{vue,js,ts,jsx,tsx}",],
   theme: {
     extend: {
-      colors: {
-        gry:'#707070',
-        gry2:'#fff',
-        silver:'silver',
-        gry3:'#ddd',
-        gry4:'#373a3c',
-        red:'#cb2e25',
-        blue:'#1c7cd5',
-        blue2:'#5bc0de',
-        black:'#000',
-       },
-       width: {
+    width: {
    1440:'93rem',
+   1728:'90rem',
    450:'28rem',
    405:'25rem',
    1136:'73rem',
    848:'53rem',
+   650:'33rem'
        },
        height:{
          1024:'64rem',
@@ -28,19 +19,23 @@ module.exports = {
          523:'29rem',
          964:'60rem',
          366:'23rem',
+         350:'20rem',
        },
        padding:{
          495:'31rem',
          102:'5.75rem',
-         817:'51rem',
+         817:'40rem',
+         770:'33rem',
+         800:'38rem',
        },
        margin:{
-         953:'61rem',
-         467:'29rem',
-         770:'48rem',
+        840:'38rem',
        },
-       gap:{
-         12:'4.85rem',
+       borderRadius: {
+        250:"16rem",
+       },
+       maxWidth: {
+        210:"10rem",
        },
     },
   },

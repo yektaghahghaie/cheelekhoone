@@ -1,255 +1,111 @@
 <template>
-    
-   <section class="All Posts">
-  <div class="flex w-1440 h-16 bg-gry4 pt-2.5 pr-7 pb-2.5 pl-4">
-      <div class="text-gry2 mt-1.5 mr-0.5 mb-1.5 ml-0 text-2xl w-44 h-7">Arvan Challenge</div>
-      <div class="text-base text-gry2 h-5 w-44 mt-3 mr-953 mb-3 ml-5">Welcome</div>
-      <button> <router-link to="/about" class="rounded border border-solid text-blue2 border-blue2 h-10 w-20">Logout</router-link></button>
-  </div>
-  <div class="flex">
-      <div class="w-64 h-964 mr-8 mt-0 mb-0 ml-0 pt-3 pr-0 pb-817 pl-3 bg-blue">
-          <div class="w-11 h-7 text-2xl text-gry2 mt-0 mr-48 mb-7">Post</div>
-          <button @click="getarticles" class="w-24 h-5 text-gry2 text-lg mt-0 mr-32 mb-4 ml-3.5">All Articles</button>
-          <button><router-link to="/new"  class="w-24 h-5 text-gry2 text-lg mt-0 mr-32 mb-4 ml-3.5">New Article</router-link></button>
+  <div class="list">
+    <div v-for='(article,index) in data' :key="index">
+      <div class="img">
+      <div v-if="article.images"><img :src="article.images[0]" alt=""></div>
+        <div v-else><img class="no" :src="article.poster" alt=""></div>
+      <div class="box">
+        <div class="groh">
+          <div class="poster"><img :src="article.poster" alt=""></div>
+          <div>
+            <div class="title">{{ article.title }}</div>
+            <div class="id">2017</div>
+            <div class="groh">
+              <button class="id">117 min </button>
+              <div class="genres">
+                <div v-for="(mo,index2) in article.genres" :key="index2">
+                <div>{{ mo }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="id">Lorem ipsum dolor, sit amet consectetur adipisicing elit.<br>
+          Ratione sequi nobis commodi deleniti iste tempora temp<br>
+          exercitationem ipsam dolorum vero accusantium recusand<br>
+          libero unde praesentium architecto sunt ab vitae!
       </div>
-      <div class="mt-6">
-          <div class="text-black text-4xl">All Posts</div>
-          <div class="flex gap-x-20 pl-6 mt-6 pt-1.5 pb-1.5 bg-blue w-1136">
-              <div class="">#</div>
-              <div class="mr-32">Title</div>
-              <div class="">Author</div>
-              <div>Tags</div>
-              <div class="ml-12">Excerpt</div>
-              <div class="ml-80">Created</div>
-          </div>
-          <div class="flex bg-gry2 w-1440 h-12 gap-x-12 pl-6 mt-6">
-              <div class="">1</div>
-              <div class=""></div>
-              <div class=""></div>
-              <div class=""></div>
-              <div class=""></div>
-              <div class=""></div>
-              <select class="bg-blue2 rounded pl-3 text-gry2 mb-1">
-                <option value="...">...</option>
-                  <option value="Edit">Edit</option>
-                  <option value="Delete">Delete</option>
-              </select>
-          </div>
-          <div class="border-b border-solid border-red mb-3 w-1136"></div>
-          <div class="flex bg-gry2 w-1440 h-12 gap-x-12 pl-6 mt-6">
-              <div class=""></div>
-              <div class="">Article title</div>
-              <div class="">@author_username</div>
-              <div class="">list of tags</div>
-              <div class="">First 20 words of article body</div>
-              <div class="">June 11 ,2019</div>
-              <select class="bg-blue2 rounded pl-3 text-gry2 mb-1">
-                  <option value="...">...</option>
-                  <option value="Edit">Edit</option>
-                  <option value="Delete">Delete</option>
-              </select>
-          </div>
-          <div class="border-b border-solid border-red mb-3 w-1136"></div>
-          <div class="flex bg-gry2 w-1440 h-12 gap-x-12 pl-6 mt-6">
-              <div class="">3</div>
-              <div class="">Article title</div>
-              <div class="">@author_username</div>
-              <div class="">list of tags</div>
-              <div class="">First 20 words of article body</div>
-              <div class="">June 11 ,2019</div>
-              <select class="bg-blue2 rounded pl-3 text-gry2 mb-1">
-                  <option value="...">...</option>
-                  <option value="Edit">Edit</option>
-                  <option value="Delete">Delete</option>
-              </select>
-          </div>
-          <div class="border-b border-solid border-red mb-3 w-1136"></div>
-          <div class="flex bg-gry2 w-1440 h-12 gap-x-12 pl-6 mt-6">
-              <div class="">4</div>
-              <div class="">Article title</div>
-              <div class="">@author_username</div>
-              <div class="">list of tags</div>
-              <div class="">First 20 words of article body</div>
-              <div class="">June 11 ,2019</div>
-              <select class="bg-blue2 rounded pl-3 text-gry2 mb-1">
-                  <option value="...">...</option>
-                  <option value="Edit">Edit</option>
-                  <option value="Delete">Delete</option>
-              </select>
-          </div>
-          <div class="border-b border-solid border-red mb-3 w-1136"></div>
-          <div class="flex bg-gry2 w-1440 h-12 gap-x-12 pl-6 mt-6">
-              <div class="">5</div>
-              <div class="">Article title</div>
-              <div class="">@author_username</div>
-              <div class="">list of tags</div>
-              <div class="">First 20 words of article body</div>
-              <div class="">June 11 ,2019</div>
-              <select class="bg-blue2 rounded pl-3 text-gry2 mb-1">
-                  <option value="...">...</option>
-                  <option value="Edit">Edit</option>
-                  <option value="Delete">Delete</option>
-              </select>
-          </div>
-          <div class="border-b border-solid border-red mb-3 w-1136"></div>
-          <div class="flex bg-gry2 w-1440 h-12 gap-x-12 pl-6 mt-6">
-              <div class="">6</div>
-              <div class="">Article title</div>
-              <div class="">@author_username</div>
-              <div class="">list of tags</div>
-              <div class="">First 20 words of article body</div>
-              <div class="">June 11 ,2019</div>
-              <select class="bg-blue2 rounded pl-3 text-gry2 mb-1">
-                  <option value="...">...</option>
-                  <option value="Edit">Edit</option>
-                  <option value="Delete">Delete</option>
-              </select>
-          </div>
-          <div class="border-b border-solid border-red mb-3 w-1136"></div>
-          <div class="flex bg-gry2 w-1440 h-12 gap-x-12 pl-6 mt-6">
-              <div class="">7</div>
-              <div class="">Article title</div>
-              <div class="">@author_username</div>
-              <div class="">list of tags</div>
-              <div class="">First 20 words of article body</div>
-              <div class="">June 11 ,2019</div>
-              <select class="bg-blue2 rounded pl-3 text-gry2 mb-1">
-                  <option value="...">...</option>
-                  <option value="Edit">Edit</option>
-                  <option value="Delete">Delete</option>
-              </select>
-          </div>
-          <div class="border-b border-solid border-red mb-3 w-1136"></div>
-          <div class="flex bg-gry2 w-1440 h-12 gap-x-12 pl-6 mt-6">
-              <div class="">8</div>
-              <div class="">Article title</div>
-              <div class="">@author_username</div>
-              <div class="">list of tags</div>
-              <div class="">First 20 words of article body</div>
-              <div class="">June 11 ,2019</div>
-              <select class="bg-blue2 rounded pl-3 text-gry2 mb-1">
-                  <option value="...">...</option>
-                  <option value="Edit">Edit</option>
-                  <option value="Delete">Delete</option>
-              </select>
-          </div>
-          <div class="border-b border-solid border-red mb-3 w-1136"></div>
-          <div class="flex bg-gry2 w-1440 h-12 gap-x-12 pl-6 mt-6">
-              <div class="">9</div>
-              <div class="">Article title</div>
-              <div class="">@author_username</div>
-              <div class="">list of tags</div>
-              <div class="">First 20 words of article body</div>
-              <div class="">June 11 ,2019</div>
-              <select class="bg-blue2 rounded pl-3 text-gry2 mb-1">
-                  <option value="...">...</option>
-                  <option value="Edit">Edit</option>
-                  <option value="Delete">Delete</option>
-              </select>
-          </div>
-          <div class="border-b border-solid border-red mb-3 w-1136"></div>
-          <div class="flex bg-gry2 w-1440 h-12 gap-x-12 pl-4 mt-6" v-show="dilit">
-              <div class="">10</div>
-              <div class="">Article title</div>
-              <div class="">@author_username</div>
-              <div class="">list of tags</div>
-              <div class="">First 20 words of article body</div>
-              <div class="">June 11 ,2019</div>
-              <select class="bg-blue2 rounded pl-3 text-gry2 mb-1">
-                  <option value="...">...</option>
-                 <option value="Edit"> <router-link to="/">Edit</router-link></option>
-                 <option value="Delete" @click="dodelete">Delete</option>
-              </select>
-              <button @click="dilit=false" value="Delete">Delete</button>
-          </div>
-          <div class="border-b border-solid border-red mb-3 w-1136"></div>
-          <div class="mt-16 ml-467">
-            <button class="w-8 border border-solid border-red" @click="backward">w</button>
-              <button><router-link to="/all" class="w-8 border border-solid border-red">1</router-link></button>
-                      <button><router-link to="/all2" class="w-8 border border-solid border-red">2</router-link></button>
-                      <button><router-link to="/all3" class="w-8 border border-solid border-red">3</router-link></button>
-                      <button><router-link to="/all4" class="w-8 border border-solid border-red">4</router-link></button>
-                      <button class="w-8 border border-solid border-red" @click="forward">f</button>
-                    
-                     
-          </div>
-      </div>
+    </div>
   </div>
-</section>
-
-                    <div>{{ articles }}</div>
-                    <button @click="getarticles">cklic</button>
-                  
-                    <article v-for='article in articles' :key="article.slug">
-                        <div>{{ article.body }}</div>
-     </article>
-                   
+  </div>
+  <button class="btn" @click="b()">movies</button>
+  </div>
 </template>
 
 <script>
 import axios from "axios";
+import { ref } from "vue";
 export default {
-data(){
-    return{
-        articles:[],
-     article:" ",
-        dilit:true
-    }
-},
-mounted(){
-this.d()
-},
-methods:{
-    d(){
-        const $this=this
-    this.$axios.get('https://api.realworld.io/api/articles')
+  setup() {
+   const data=ref([]);
+const movies=ref(1);
+ function d(){
+    axios.get(`https://moviesapi.ir/api/v1/movies?page=${movies.value}`)
   .then(function (response) {
-    // handle success
     console.log(response);
-    $this.articles=response.data
+    data.value=response.data.data
   })
   .catch(function (error) {
-    // handle error
     console.log(error);
   })
-  .finally(function () {
-    // always executed
-  });
-},
-dpdelete(){
-   axios.delete('https://api.realworld.io/api/articles/{slug}',{
-    headers:{
-      Authorization:'Bearer '+ this.token
-    },
-  'article': {
-    "title":this.title,
-     "description":this.description,
-      "body":this.body,
-      "tagList":this.tagList,
-  }
-})
-  .then(res=>{
-    this.token=res.data.article.token;
-    localStorage.setItem('token', this.token)
-    this.$router.push('/All')
-  })
-  .catch(err=>{
-    console.log(13,err);
-  })
-},
-   getarticles(){
-    axios.get('https://api.realworld.io/api/articles')
-  .then(res=>{
-    this.articles=res.data.data;
-  })
-  .catch(err=>{
-    console.log(12,err);
-  })
-},
-},
 }
+function b(){
+  movies.value++
+  d()
+}
+ d();
+return{data,b};
+  },
+}
+
+
 </script>
-
-<style>
-
+<style >
+.list{
+  background: black;
+  margin: auto;
+  width: 2000px;
+  border: 1px solid black;
+  border-radius: 30px;
+  z-index: -1;
+}
+.title{
+  color: bisque;
+}
+.genres{
+  color: bisque;
+  display: flex;
+}
+.id{
+  color: bisque;
+}
+.box{
+position: absolute;
+z-index: 1;
+top: 30px;
+  padding-left:100px;
+}
+.poster{
+  width: 100px;
+}
+.groh{
+  display: flex;
+  gap: 30px;
+}
+.img{
+  position: relative;
+padding-left: 300px;
+z-index: 0;
+margin-bottom: 150px;
+}
+.btn{
+  margin-left: 910px;
+  background-color: brown;
+  padding:20px;
+  width: 140px;
+}
+.no{
+  width: 1300px;
+  height: 700px;
+}
 </style>
